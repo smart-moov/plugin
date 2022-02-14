@@ -3,6 +3,16 @@
  */
 export default class Plugin {
   /**
+   * Returns the list of enabled features by this plugin.
+   * Can be : 'chatbot', 'applications'
+   *
+   * @returns string[]
+   */
+  getFeatures () {
+    return []
+  }
+
+  /**
    * Add one or many steps. Each step contains an object with keys :
    *
    * - id: Step ID
