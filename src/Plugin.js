@@ -29,22 +29,31 @@ export default class Plugin {
 
   /**
    * Handles one step execution. Receives a context with control functions, execution data.
-   * Saves the returned data as execution data.
    *
    * @param {string} id Step ID
+   * @param {mixed} conf Configuration of the step
+   * @param {mixed} input Input data
    * @param {object} ctx Context
-   * @returns mixed
    */
-  handleChatbotStep (id, ctx) {
-    return undefined
+  async executeChatbotStep (id, conf, input, ctx) {
+    return
   }
 
   /**
-   * Returns the default configuration of this plugin
+   * Handles a new application to an organization
+   *
+   * @param {object} application Application data
+   */
+  async handleApplication (application, ctx) {
+    return
+  }
+
+  /**
+   * Returns the configuration fields of this plugin
    *
    * @returns object
    */
-  getDefaultConfiguration () {
+  getConfiguration () {
     return {}
   }
 
