@@ -20,8 +20,6 @@ import { Plugin } from '@smart-moov/plugin'
 export default class MyPlugin extends Plugin {}
 ```
 
-> Note: No need to add a `package.json` file, the packages you call will be automatically installed at build time.
-
 ## ✅ Features
 
 You can enable features for your plugin :
@@ -43,36 +41,52 @@ export default class MyPlugin extends Plugin {
 
 ```js
 export default class MyPlugin extends Plugin {
-  addChatbotSteps () {
-    return [
-      {
-        id: 'talk',
-        name: {
-          fr: 'Parler avec Dean',
-          en: 'Talk with Dean'
-        },
-        category: 'messages',
-        icon: 'comment-alt',
-        configuration: {
-          message: {
-            type: 'text',
-            i18n: true
-          }
+  getChatbotStepConfiguration () {
+    return {
+      id: 'talk',
+      name: {
+        fr: 'Parler avec Dean',
+        en: 'Talk with Dean'
+      },
+      category: 'messages',
+      icon: 'comment-alt',
+      configuration: {
+        message: {
+          type: 'text',
+          i18n: true
         }
       }
-    ]
+    }
   }
 }
 ```
 
 More details soon.
 
-### Handle custom steps
+### Handle chatbot steps
 
 ```js
 export default class MyPlugin extends Plugin {
-  handleChatbotStep (id, ctx) {
-    return undefined
+  getChatbotPublicPlugin () {
+    return async ctx => {
+      const name = await ctx.askText('Question ?', {
+        minLength: 10
+      })
+
+      const ret = await ctx.callPrivatePlugin({
+        name
+      })
+
+      console.log(ret.saved)
+    }
+  }
+
+  async executeChatbotPrivatePlugin ({ name }, ctx) {
+    // Save name in other tools
+
+    return {
+      saved: true
+    }
   }
 }
 ```

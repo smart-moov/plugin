@@ -13,7 +13,7 @@ export default class Plugin {
   }
 
   /**
-   * Add one or many steps. Each step contains an object with keys :
+   * Add one steps. The step is an object with keys :
    *
    * - id: Step ID
    * - name: Step name, string or I18N object (language: name)
@@ -23,20 +23,26 @@ export default class Plugin {
    *
    * @returns Array
    */
-  addChatbotSteps () {
+  getChatbotStepConfiguration () {
     return []
   }
 
   /**
-   * Handles one step execution. Receives a context with control functions, execution data.
-   *
-   * @param {string} id Step ID
-   * @param {mixed} conf Configuration of the step
-   * @param {mixed} input Input data
-   * @param {object} ctx Context
+   * Returns an async function
    */
-  async executeChatbotStep (id, conf, input, ctx) {
-    return
+  getChatbotPublicPlugin () {
+    return async ctx => {}
+  }
+
+  /**
+   * Executes the private API endpoint of this plugin.
+   *
+   * @param {object} params Parameters sent by public plugin
+   * @param {object} ctx Execution context
+   * @returns
+   */
+  async executeChatbotPrivatePlugin (params, ctx) {
+    return {}
   }
 
   /**
