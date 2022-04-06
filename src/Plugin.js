@@ -13,6 +13,15 @@ export default class Plugin {
   }
 
   /**
+   * Returns the plugin name.
+   *
+   * @returns string
+   */
+  getName () {
+    return 'Plugin name'
+  }
+
+  /**
    * Add one steps. The step is an object with keys :
    *
    * - id: Step ID
