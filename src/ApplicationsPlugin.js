@@ -15,6 +15,14 @@ export default class ApplicationsPlugin extends Plugin {
   }
 
   /**
+   * Returns the campaign configuration for ATS synchronization
+   * @returns object
+   */
+  getApplicationsCampaignConfiguration () {
+    return {}
+  }
+
+  /**
    * Handles a new application to an organization
    *
    * @param {object} application Application data
