@@ -1,7 +1,7 @@
 {
   "name": "@smart-moov/plugin",
   "description": "Base for Smart Moov plugins, available in the Smart Moov Marketplace",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "dist/index.js",
   "repository": "git@github.com:smart-moov/plugin.git",
   "author": "Smart Moov <dev@smart-moov.fr>",

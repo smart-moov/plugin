@@ -26,7 +26,7 @@ export default class ChatbotPlugin extends Plugin {
    * @returns Array
    */
   getChatbotStepConfiguration () {
-    return []
+    return {}
   }
 
   /**
