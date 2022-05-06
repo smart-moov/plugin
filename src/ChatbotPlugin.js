@@ -46,4 +46,14 @@ export default class ChatbotPlugin extends Plugin {
   async executeChatbotPrivatePlugin (params, ctx) {
     return {}
   }
+
+  /**
+   * Returns autocomplete for configuration
+   *
+   * @param {string} query Query string
+   * @param {object} ctx Context
+   */
+  async autocomplete (query, ctx) {
+    return []
+  }
 }
